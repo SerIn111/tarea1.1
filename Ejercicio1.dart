@@ -2,13 +2,21 @@
 
 void main()
 {
-  List <Object> empleados = [Empleado('Sergio', 10, 15000), Empleado('German', 20, 16000), Empleado('Rocio', 30, 12000), Empleado('Aaron', 40, 14000)];
+  List <Empleado> empleados = [Empleado('Sergio', 10, 15000), Empleado('German', 20, 16000), Empleado('Rocio', 30, 15500), Empleado('Aaron', 40, 12000)];
   // final E1 = Empleado('Sergio', 10, 15000);
   // final E2 = Empleado('German', 20, 16000);
   // final E3 = Empleado('Rocio', 30, 12000);
   // final E4 = Empleado('Aaron', 40, 14000);
 
   print("Salarios antes del aumento");
+  for (var empleado in empleados)
+  {
+    print(empleado);
+  }
+
+  aumentarSalario(empleados, porcentaje: 50);
+
+  print("Salarios despues del aumento");
   for (var empleado in empleados)
   {
     print(empleado);
@@ -31,7 +39,7 @@ class Empleado
   }
 }
 
-void aumentarSalario(Empleado empleados, {required double porcentaje})
+void aumentarSalario(List<Empleado> empleados, {required double porcentaje})
 {
   if(porcentaje <= 0)
   {
@@ -39,6 +47,11 @@ void aumentarSalario(Empleado empleados, {required double porcentaje})
   }
   else
   {
+    // empleados.salario += empleados.salario * (porcentaje / 100);
 
+    for(var empleado in empleados)
+    {
+      empleado.salario += empleado.salario * (porcentaje / 100);
+    }
   }
 }
