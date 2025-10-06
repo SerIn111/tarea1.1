@@ -13,21 +13,27 @@ void main()
 
   print("Inventario inicial");
   mostrarInventario(inventario);
+  print(" ");
   actualizarInventario(inventario, 1, 40);
-   print("Inventario despues de la actualizacion");
+  print("Inventario despues de la actualizacion");
   mostrarInventario(inventario);
+  print(" ");
+  print("Valor total del inventario: ${calcularValorTotal(inventario)}");
+  
   
 }
 
 mostrarInventario(Map<int, dynamic> inventario)
 {
   print(inventario);
-  int cont = 0;
-  for(int producto in inventario.keys)
-  {
-    cont++;
-  }
-  print(cont);
+  //Para ver si muestra la cantidad de productos---------------------------------
+  // int cont = 0;
+  // for(int producto in inventario.keys)
+  // {
+  //   cont++;
+  // }
+  // print(cont);
+  //Para ver si muestra la cantidad de productos---------------------------------
 }
 
 actualizarInventario(Map<int, dynamic> inventario, int id, int nuevaCantidad)
@@ -42,7 +48,13 @@ actualizarInventario(Map<int, dynamic> inventario, int id, int nuevaCantidad)
   }
 }
 
-calcularValorTotal(Map<int, dynamic> inventario)
+double calcularValorTotal(Map<int, dynamic> inventario)
 {
+  double valorTotal = 0;
 
+  for(int producto in inventario.keys)
+  {
+    valorTotal += inventario[producto]['precio'];
+  }
+  return valorTotal;
 }

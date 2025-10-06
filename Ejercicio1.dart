@@ -14,6 +14,8 @@ void main()
     print(empleado);
   }
 
+  print(" ");
+  
   aumentarSalario(empleados, porcentaje: 50);
 
   print("Salarios despues del aumento");
