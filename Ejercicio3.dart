@@ -12,15 +12,17 @@ void main()
   print(" ");
   eliminarContacto(agenda, 'Alexa');
   print(" ");
+  print("Agenda después de la eliminación:");
   mostrarContactos(agenda);
 }
 
 void mostrarContactos(List agenda)
 {
-  for(int i = 0; i < agenda.length; i++)
-  {
-    print(agenda[i]);
-  }
+  print(agenda);
+  // for(int i = 0; i < agenda.length; i++)
+  // {
+  //   print(agenda[i]);
+  // }
 }
 
 Map? buscarContacto(List<Map<String, String>> agenda, String nombre)
