@@ -14,13 +14,11 @@ void main()
   print("Inventario inicial");
   mostrarInventario(inventario);
   print(" ");
-  actualizarInventario(inventario, 1, 40);
+  actualizarInventario(inventario, 2, 40);
   print("Inventario despues de la actualizacion");
   mostrarInventario(inventario);
   print(" ");
   print("Valor total del inventario: ${calcularValorTotal(inventario)}");
-  
-  
 }
 
 mostrarInventario(Map<int, dynamic> inventario)
