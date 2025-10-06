@@ -1,48 +1,67 @@
 //Sergio Rolando Inestroza Amaya 20182002621
 void main()
 {
-  List<Map<String, String>> contactos = 
+  List<Map<String, String>> agenda = 
   [
     {'nombre' : 'Sergio', 'telefono' : '9999-5555', 'email' : 'sergio.inestroza@unah.hn'},
     {'nombre' : 'Jorge', 'telefono' : '8888-5555', 'email' : 'jorge.matute@unah.hn'},
     {'nombre' : 'Alexa', 'telefono' : '3333-5555', 'email' : 'alexa.rivas@unah.hn'}
   ];
 
-  // mostrarContactos(contactos);
-  // print(" ");
-  print(buscarContacto(contactos,'Juan'));
+  print(buscarContacto(agenda,'Alexa'));
   print(" ");
-  mostrarContactos(contactos);
+  eliminarContacto(agenda, 'Alexa');
+  print(" ");
+  mostrarContactos(agenda);
 }
 
-void mostrarContactos(List contactos)
+void mostrarContactos(List agenda)
 {
-  for(int i = 0; i < contactos.length; i++)
+  for(int i = 0; i < agenda.length; i++)
   {
-    print(contactos[i]);
+    print(agenda[i]);
   }
 }
 
-List? buscarContacto(List<Map<String, String>> contactos, String nombre)
+Map? buscarContacto(List<Map<String, String>> agenda, String nombre)
 {
+  Map<String, String> datos = {};
   print('Buscando a $nombre...');
-  for(int i = 0; i < contactos.length; i++)
+  for(int i = 0; i < agenda.length; i++)
   {
-    if(contactos[i].containsValue(nombre))
+    if(agenda[i].containsValue(nombre))
     {
-      print('Contacto encontrado ${contactos[i]}');
-      contactos.removeAt(i);
+      datos = agenda[i];
+      break;
     }
     else
     {
-      return null;
+      if(i == agenda.length - 1)
+      {
+        return null;
+      }
     }
   }
-  List datos = contactos;
+
   return datos;
 }
 
-void eliminarContacto()
+void eliminarContacto(List <Map<String, String>> agenda, String nombre)
 {
-  
+  print('Eliminando a $nombre...');
+  for(int i = 0; i < agenda.length; i++)
+  {
+    if(agenda[i].containsValue(nombre))
+    {
+      agenda.removeAt(i);
+      break;
+    }
+    else
+    {
+      if(i == agenda.length - 1)
+      {
+        return null;
+      }
+    }
+  }
 }
