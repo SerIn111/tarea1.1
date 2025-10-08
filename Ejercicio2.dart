@@ -9,8 +9,6 @@ void main()
     3 : {'nombre' : 'Cereal Fans', 'cantidad' : 17, 'precio' : 90.00}
   };
 
-  // print(inventario[1]['nombre']);
-
   print("Inventario inicial");
   mostrarInventario(inventario);
   print(" ");

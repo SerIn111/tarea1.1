@@ -27,29 +27,33 @@ double calcularPromedio(List<double> notas)
   return prom;
 }
 
-
 String obtenerMejorEstudiante(Map<String, List<double>> notasEstudiantes)
 {
   List<String> estudiantes = [];
   List<double> notas = [];
   String mejorestudiante = '';
   double promedioactual, promediomasalto = 0;
-  for(int i = 0; i < notasEstudiantes.length; i++) //Para extraer los estudiantes del mapa
+
+  //Para extraer los estudiantes del mapa
+  for(int i = 0; i < notasEstudiantes.length; i++) 
   {
     estudiantes.add(notasEstudiantes.keys.toList().elementAt(i));
   }
 
+  //Recorrer las notas de cada estudiante
   for(int j = 0; j < estudiantes.length; j++)
   {
     notas.clear();
     promedioactual = 0;
-    for(int k = 0; k < notasEstudiantes[estudiantes[j]]!.toList().length; k++) //Recorrer los valores de
+
+    //Para calcular el promedio de las notas obtenidas del estudiante actual
+    for(int k = 0; k < notasEstudiantes[estudiantes[j]]!.toList().length; k++) 
     {
-      // notas.add(notasEstudiantes[estudiantes[j]]!.toList().elementAt(k));
       promedioactual += notasEstudiantes[estudiantes[j]]!.toList().elementAt(k);
     }
     promedioactual = promedioactual / notasEstudiantes[estudiantes[j]]!.toList().length;
-    if(promedioactual > promediomasalto)
+    
+    if(promedioactual > promediomasalto) //Si el promedio actual es mayor al promedio mas alto hasta el momento
     {
       promediomasalto = promedioactual;
       mejorestudiante = estudiantes.elementAt(j);

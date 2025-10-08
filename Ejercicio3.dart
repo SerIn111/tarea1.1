@@ -19,10 +19,6 @@ void main()
 void mostrarContactos(List agenda)
 {
   print(agenda);
-  // for(int i = 0; i < agenda.length; i++)
-  // {
-  //   print(agenda[i]);
-  // }
 }
 
 Map? buscarContacto(List<Map<String, String>> agenda, String nombre)
